@@ -31,7 +31,7 @@ const Dashboard = () => {
   };
 
   return (
-    <div class="container" className="min-h-screen bg-gray-700 flex items-center justify-center">
+    <div class="container" className="min-h-screen justify-items-center bg-gray-700 flex items-center justify-center">
       <div className="bg-white p-8 rounded-lg shadow-md w-full md:w-1/2 lg:w-1/3">
         <h1 className="text-3xl font-bold mb-4">Book an Event</h1>
         <form onSubmit={handleSubmit}>
