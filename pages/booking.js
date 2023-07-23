@@ -1,51 +1,50 @@
 import React, { useState } from "react";
 
-const Booking = () => {
-  const [selectedDate, setSelectedDate] = useState("");
-  const [selectedTime, setSelectedTime] = useState("");
+const Appointment = () => {
+  const [name, setName] = useState("");
+  const [date, setDate] = useState("");
 
-  const handleDateChange = (event) => {
-    setSelectedDate(event.target.value);
-  };
-
-  const handleTimeChange = (event) => {
-    setSelectedTime(event.target.value);
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log("Booking submitted:", {
-      date: selectedDate,
-      time: selectedTime,
-    });
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    // Handle form submission logic here
   };
 
   return (
-    <div>
-      <h1>Booking System</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="date">Select Date:</label>
-        <input
-          type="date"
-          id="date"
-          value={selectedDate}
-          onChange={handleDateChange}
-          required
-        />
-
-        <label htmlFor="time">Select Time:</label>
-        <input
-          type="time"
-          id="time"
-          value={selectedTime}
-          onChange={handleTimeChange}
-          required
-        />
-
-        <button type="submit">Book Now</button>
-      </form>
-    </div>
+    <>
+      <nav>
+        <div className="logo">
+          <a href="/logo">Logo</a>
+        </div>
+        <div className="spacer"></div>
+        <div className="links">
+          <a href="/">Home</a>
+          <a href="/integration">Integration</a>
+        </div>
+      </nav>
+      <div className="appointment-page">
+        <h1>Book an Appointment</h1>
+        <form onSubmit={handleFormSubmit}>
+          <label htmlFor="name">Your Name:</label>
+          <input
+            type="text"
+            id="name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+          <label htmlFor="date">Select a Date:</label>
+          <input
+            type="date"
+            id="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            required
+          />
+          <button type="submit">Book Appointment</button>
+        </form>
+      </div>
+    </>
   );
 };
 
-export default Booking;
+export default Appointment;
